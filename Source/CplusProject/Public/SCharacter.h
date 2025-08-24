@@ -18,9 +18,14 @@ public:
 	// Sets default values for this character's properties
 	ASCharacter();
 
+	
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<AActor> ProjectileClass;
 
 	UPROPERTY(VisibleAnywhere)
 	USpringArmComponent* SpringArmComp;
@@ -30,8 +35,12 @@ protected:
 
 	//MoveForward
 	void MoveForward(float value);
+	void MoveRight(float value);
 
-	void Turn(float value);
+	void Turn();
+	void LookUp();
+
+	void PrimaryAttack();
 
 public:	
 	// Called every frame
